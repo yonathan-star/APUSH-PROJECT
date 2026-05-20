@@ -1,0 +1,1100 @@
+/* ============================================================
+   AMERICA AT WAR WITH ITSELF — Documentary Visual System
+   APUSH 2026 | Vietnam War Multimedia Presentation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Oswald:wght@300;400;600;700&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+  --bg-deep:       #060402;
+  --bg-primary:    #0d0a06;
+  --bg-secondary:  #181208;
+  --bg-card:       #1e1710;
+
+  --text-cream:    #e8d5a3;
+  --text-warm:     #d4b87a;
+  --text-secondary:#b89c6e;
+  --text-muted:    #7a6849;
+  --text-dim:      #4a3c2a;
+
+  --accent-red:    #8b1a1a;
+  --accent-red-lt: #b02828;
+  --accent-gold:   #c9a84c;
+  --accent-amber:  #d4883a;
+  --accent-rust:   #9e4a1e;
+
+  --olive-dark:    #1e2c14;
+  --olive:         #2f3e20;
+  --olive-mid:     #3d4c2e;
+
+  --sepia-dark:    #5a3a1a;
+  --sepia:         #8b6f47;
+  --sepia-light:   #c8a878;
+  --paper:         #f0e0c0;
+
+  --white-warm:    #f5ead8;
+  --smoke:         rgba(232, 213, 163, 0.06);
+
+  --font-title:    'Special Elite', 'Courier New', monospace;
+  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-body:     'Courier Prime', 'Courier New', monospace;
+  --font-caption:  'IM Fell English', Georgia, serif;
+  --font-stamp:    'Oswald', sans-serif;
+
+  --scene-transition: 900ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+  user-select: none;
+}
+
+/* ── Film Grain Overlay ── */
+.grain-overlay {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.055;
+  animation: grain-shift 0.18s steps(1) infinite;
+  pointer-events: none;
+  z-index: 9000;
+  mix-blend-mode: overlay;
+}
+
+@keyframes grain-shift {
+  0%   { transform: translate(0%,   0%);  }
+  10%  { transform: translate(-3%,  2%);  }
+  20%  { transform: translate(2%,  -3%);  }
+  30%  { transform: translate(-1%,  4%);  }
+  40%  { transform: translate(4%,  -1%);  }
+  50%  { transform: translate(-2%,  2%);  }
+  60%  { transform: translate(3%,  -4%);  }
+  70%  { transform: translate(-4%,  1%);  }
+  80%  { transform: translate(1%,  -2%);  }
+  90%  { transform: translate(2%,   3%);  }
+  100% { transform: translate(-1%, -1%);  }
+}
+
+/* ── Scanline Overlay ── */
+.scanline-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.08) 3px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 8999;
+}
+
+/* ── Vignette ── */
+.vignette-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 8998;
+}
+
+/* ── Presentation Container ── */
+.presentation {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Scene System ── */
+.scene {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--scene-transition);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scene.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scene.exiting {
+  opacity: 0;
+}
+
+/* ── Scene Type: Title ── */
+.scene--title {
+  background-color: var(--bg-deep);
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+}
+
+.scene--title::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(139, 26, 26, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(30, 44, 20, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Scene Type: Dark Full ── */
+.scene--dark {
+  background-color: var(--bg-primary);
+  flex-direction: column;
+}
+
+/* ── Scene Type: Split ── */
+.scene--split {
+  background-color: var(--bg-primary);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 0;
+}
+
+/* ── Scene Type: Immersive Image ── */
+.scene--immersive {
+  background-color: var(--bg-deep);
+  flex-direction: column;
+}
+
+/* ── Scene Type: Lyric ── */
+.scene--lyric {
+  background-color: var(--bg-deep);
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ── Scene Type: Quote ── */
+.scene--quote {
+  background-color: var(--bg-secondary);
+  flex-direction: column;
+  text-align: center;
+  padding: 4rem;
+}
+
+/* ── Scene Type: Fact ── */
+.scene--fact {
+  background-color: var(--bg-primary);
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ── Scene Type: Credits ── */
+.scene--credits {
+  background-color: var(--bg-deep);
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ── Background Images ── */
+.scene-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: sepia(0.6) brightness(0.35) contrast(1.1);
+  z-index: 0;
+  animation: subtle-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-zoom {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.06); }
+}
+
+.scene-bg--left {
+  background-position: 20% center;
+}
+.scene-bg--portrait {
+  background-position: center 20%;
+}
+
+/* Image Placeholder (used when real image not loaded) */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    var(--olive-dark) 40%,
+    var(--sepia-dark) 70%,
+    var(--bg-deep) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.img-placeholder-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--text-dim);
+  padding: 0.3rem 0.8rem;
+  opacity: 0.6;
+}
+
+/* ── Scene Content Layer ── */
+.scene-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 5rem;
+}
+
+.scene-content--left {
+  align-items: flex-start;
+  text-align: left;
+  padding: 3rem 6rem 3rem 8rem;
+}
+
+.scene-content--overlay {
+  background: linear-gradient(
+    to right,
+    rgba(6, 4, 2, 0.92) 0%,
+    rgba(6, 4, 2, 0.80) 50%,
+    rgba(6, 4, 2, 0.3) 100%
+  );
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 8rem 4rem 8%;
+}
+
+.scene-content--overlay-center {
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 4, 2, 0.3) 0%,
+    rgba(6, 4, 2, 0.88) 50%,
+    rgba(6, 4, 2, 0.96) 100%
+  );
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 60%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 8%;
+}
+
+/* ── Split Panel ── */
+.split-panel {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.split-panel--image {
+  background-color: var(--bg-deep);
+}
+
+.split-panel--content {
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5%;
+  border-left: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.split-panel--content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-gold),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* ── Typography System ── */
+
+/* Pre-title / Act label */
+.label-act {
+  font-family: var(--font-stamp);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+/* Main title */
+.title-main {
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--text-cream);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2rem;
+  text-shadow: 2px 4px 20px rgba(0,0,0,0.8);
+}
+
+.title-main--huge {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+
+.title-main--red {
+  color: var(--accent-red-lt);
+}
+
+/* Subtitle */
+.title-sub {
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+/* Section headline */
+.headline {
+  font-family: var(--font-headline);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-cream);
+  margin-bottom: 1.2rem;
+  text-shadow: 1px 2px 12px rgba(0,0,0,0.7);
+}
+
+.headline--italic {
+  font-style: italic;
+}
+
+.headline--red {
+  color: var(--accent-red-lt);
+}
+
+/* Body text */
+.body-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 55ch;
+}
+
+.body-text + .body-text {
+  margin-top: 1rem;
+}
+
+/* Caption */
+.caption {
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* Dateline / location stamp */
+.dateline {
+  font-family: var(--font-stamp);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Lyric Components ── */
+
+.lyric-block {
+  position: relative;
+  text-align: center;
+  padding: 2rem 3rem;
+  max-width: 800px;
+}
+
+.lyric-block::before,
+.lyric-block::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--accent-gold);
+  opacity: 0.4;
+  margin: 0 auto 1.5rem;
+}
+
+.lyric-block::after {
+  margin: 1.5rem auto 0;
+}
+
+.lyric-text {
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  line-height: 1.5;
+  color: var(--white-warm);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+  letter-spacing: 0.01em;
+}
+
+.lyric-attribution {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 1.2rem;
+  opacity: 0.6;
+}
+
+/* Small lyric overlay on image scenes */
+.lyric-overlay {
+  position: absolute;
+  bottom: 12%;
+  left: 8%;
+  right: 8%;
+  z-index: 20;
+  border-left: 3px solid var(--accent-gold);
+  padding: 0.8rem 1.4rem;
+  background: rgba(6, 4, 2, 0.72);
+}
+
+.lyric-overlay .lyric-text {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  text-align: left;
+}
+
+/* ── Historical Analysis Box ── */
+.analysis-box {
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-left: 3px solid var(--accent-gold);
+  background: rgba(30, 23, 16, 0.7);
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  max-width: 55ch;
+}
+
+.analysis-label {
+  font-family: var(--font-stamp);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+/* ── Statistic / Big Number ── */
+.stat-block {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stat-number {
+  font-family: var(--font-title);
+  font-size: clamp(4rem, 12vw, 10rem);
+  color: var(--accent-red-lt);
+  line-height: 1;
+  text-shadow: 0 0 60px rgba(139, 26, 26, 0.4);
+  display: block;
+}
+
+.stat-label {
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.stat-source {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-top: 1rem;
+  display: block;
+  opacity: 0.6;
+}
+
+/* ── Pull Quote ── */
+.pull-quote {
+  position: relative;
+  max-width: 700px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.pull-quote-text {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  line-height: 1.5;
+  color: var(--white-warm);
+  position: relative;
+  z-index: 1;
+}
+
+.pull-quote-text::before {
+  content: '\201C';
+  font-size: 6rem;
+  color: var(--accent-red);
+  opacity: 0.25;
+  position: absolute;
+  top: -1.5rem;
+  left: -1.5rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  z-index: 0;
+}
+
+.pull-quote-attribution {
+  font-family: var(--font-stamp);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-top: 1.5rem;
+  opacity: 0.75;
+}
+
+/* ── Dividers ── */
+.divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+  margin: 1.5rem auto;
+  opacity: 0.5;
+}
+
+.divider--left {
+  margin: 1.5rem 0;
+  background: linear-gradient(to right, var(--accent-gold), transparent);
+}
+
+.divider--red {
+  background: linear-gradient(to right, transparent, var(--accent-red), transparent);
+}
+
+/* ── Redacted / Classified Effect ── */
+.redacted {
+  background: var(--text-cream);
+  color: transparent;
+  border-radius: 2px;
+  padding: 0 0.3em;
+  user-select: none;
+}
+
+.classified-stamp {
+  font-family: var(--font-stamp);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent-red);
+  border: 3px solid var(--accent-red);
+  padding: 0.2em 0.8em;
+  display: inline-block;
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  box-shadow: 0 0 20px rgba(139, 26, 26, 0.3);
+  margin-top: 1rem;
+}
+
+/* ── Document / Typewriter Look ── */
+.document-block {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--sepia-light);
+  border: 1px solid rgba(139, 111, 71, 0.3);
+  padding: 2rem 2.5rem;
+  max-width: 50ch;
+  background: rgba(20, 14, 6, 0.8);
+  position: relative;
+}
+
+.document-block::before {
+  content: attr(data-header);
+  display: block;
+  font-family: var(--font-stamp);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.3);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 80px 1px 1fr;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 0.8rem 0;
+}
+
+.timeline-year {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--accent-gold);
+  text-align: right;
+  padding-top: 0.2rem;
+}
+
+.timeline-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.timeline-connector {
+  width: 1px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, var(--accent-gold), transparent);
+  opacity: 0.25;
+}
+
+.timeline-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-bottom: 1rem;
+}
+
+.timeline-text strong {
+  color: var(--text-cream);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-caption);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ── Credits Screen ── */
+.credits-title {
+  font-family: var(--font-title);
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.credits-name {
+  font-family: var(--font-headline);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-cream);
+  margin-bottom: 0.5rem;
+}
+
+.credits-detail {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.credits-separator {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
+  margin: 2rem auto;
+  opacity: 0.5;
+}
+
+/* ── Navigation Controls ── */
+.controls {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 9500;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.controls:hover {
+  opacity: 1;
+}
+
+.btn-nav {
+  background: rgba(13, 10, 6, 0.8);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--text-secondary);
+  font-family: var(--font-stamp);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.btn-nav:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(13, 10, 6, 0.95);
+}
+
+.scene-counter {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.btn-fullscreen {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: var(--text-dim);
+  font-family: var(--font-stamp);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 1rem;
+}
+
+.btn-fullscreen:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  color: var(--text-muted);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent-red), var(--accent-gold));
+  z-index: 9600;
+  transition: width 0.3s ease;
+  opacity: 0.7;
+}
+
+/* ── Typewriter Animation ── */
+@keyframes typewriter {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40) forwards;
+}
+
+.typewriter--slow {
+  animation-duration: 3.5s;
+  animation-timing-function: steps(60);
+}
+
+/* ── Fade In Animations ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fade-in 1.2s ease forwards;
+}
+
+.delay-1  { animation-delay: 0.3s;  }
+.delay-2  { animation-delay: 0.7s;  }
+.delay-3  { animation-delay: 1.1s;  }
+.delay-4  { animation-delay: 1.6s;  }
+.delay-5  { animation-delay: 2.2s;  }
+
+.scene.active .animate-fade-up,
+.scene.active .animate-fade-in {
+  animation-play-state: running;
+}
+
+/* ── Act Break Scene ── */
+.act-break {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.act-number {
+  font-family: var(--font-stamp);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  opacity: 0.6;
+}
+
+.act-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text-cream);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.act-year {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3em;
+  margin-top: 0.5rem;
+}
+
+/* ── Noise / Texture Overlay on Image Panels ── */
+.image-panel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-panel::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(6, 4, 2, 0) 60%,
+    rgba(6, 4, 2, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.5) brightness(0.4) contrast(1.15) grayscale(0.2);
+}
+
+/* ── Contextual Scene Backgrounds ── */
+.bg-olive {
+  background: linear-gradient(135deg, var(--olive-dark) 0%, var(--bg-primary) 100%);
+}
+
+.bg-red-tint {
+  background: linear-gradient(135deg, #1a0808 0%, var(--bg-primary) 100%);
+}
+
+.bg-sepia-tint {
+  background: linear-gradient(135deg, #1a1008 0%, var(--bg-secondary) 100%);
+}
+
+/* ── Newspaper Clip Effect ── */
+.newspaper-clip {
+  background: #f0e0c0;
+  color: #1a1008;
+  padding: 2rem 2.5rem;
+  max-width: 42ch;
+  position: relative;
+  transform: rotate(-1.5deg);
+  box-shadow: 4px 4px 20px rgba(0,0,0,0.7);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.newspaper-clip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.newspaper-clip-headline {
+  font-family: var(--font-stamp);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #1a1008;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* ── Tape / Corner Effect ── */
+.tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 22px;
+  background: rgba(240, 224, 192, 0.4);
+  border: 1px solid rgba(240, 224, 192, 0.2);
+}
+
+/* ── Miscellaneous Utilities ── */
+.text-red    { color: var(--accent-red-lt); }
+.text-gold   { color: var(--accent-gold);  }
+.text-cream  { color: var(--text-cream);   }
+.text-muted  { color: var(--text-muted);   }
+.text-italic { font-style: italic;         }
+
+.mt-1  { margin-top: 0.5rem;  }
+.mt-2  { margin-top: 1rem;    }
+.mt-3  { margin-top: 1.5rem;  }
+.mt-4  { margin-top: 2rem;    }
+
+.max-text { max-width: 55ch; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .scene--split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40vh 1fr;
+  }
+
+  .scene-content--left {
+    padding: 2rem;
+  }
+
+  .split-panel--content {
+    padding: 2rem;
+  }
+
+  .controls {
+    bottom: 1rem;
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .scene-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .title-main {
+    font-size: 2.2rem;
+  }
+
+  .lyric-text {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Night sky gradient -->
+    <linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060408"/>
+      <stop offset="70%" stop-color="#0a0608"/>
+      <stop offset="100%" stop-color="#1a0808"/>
+    </linearGradient>
+    <!-- Fire/orange glow on horizon (right side) -->
+    <radialGradient id="fire-glow" cx="75%" cy="95%" r="50%">
+      <stop offset="0%" stop-color="#a83808" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#6a2008" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Secondary fire glow -->
+    <radialGradient id="fire-glow-2" cx="55%" cy="90%" r="30%">
+      <stop offset="0%" stop-color="#c84010" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Street level ground -->
+    <linearGradient id="street" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#120a06"/>
+      <stop offset="100%" stop-color="#0a0604"/>
+    </linearGradient>
+    <!-- Heavy vignette -->
+    <radialGradient id="vignette" cx="60%" cy="50%" r="65%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.88"/>
+    </radialGradient>
+    <!-- Film grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay"/>
+    </filter>
+  </defs>
+
+  <!-- Night sky -->
+  <rect width="1600" height="900" fill="url(#night-sky)"/>
+
+  <!-- Fire glow on horizon (burning buildings, right) -->
+  <rect width="1600" height="900" fill="url(#fire-glow)"/>
+  <rect width="1600" height="900" fill="url(#fire-glow-2)"/>
+
+  <!-- ── BUILDING SILHOUETTES — SAIGON URBAN ── -->
+
+  <!-- Far background buildings (gray, very dark) -->
+  <!-- Far left -->
+  <rect x="-20" y="280" width="120" height="450" fill="#100c08"/>
+  <rect x="80" y="320" width="80" height="410" fill="#0e0a06"/>
+  <rect x="140" y="200" width="100" height="530" fill="#100c08"/>
+  <!-- Windows (small, some lit orange from fire) -->
+  <g fill="#2a1408" opacity="0.6">
+    <rect x="10" y="310" width="12" height="10"/>
+    <rect x="30" y="310" width="12" height="10"/>
+    <rect x="50" y="310" width="12" height="10"/>
+    <rect x="10" y="340" width="12" height="10"/>
+    <rect x="50" y="340" width="12" height="10"/>
+    <rect x="152" y="230" width="12" height="10"/>
+    <rect x="172" y="230" width="12" height="10"/>
+    <rect x="192" y="230" width="12" height="10"/>
+  </g>
+  <!-- A couple windows with orange fire glow -->
+  <g fill="#8a3808" opacity="0.5">
+    <rect x="30" y="370" width="12" height="10"/>
+    <rect x="168" y="280" width="12" height="10"/>
+  </g>
+
+  <!-- Left-center buildings -->
+  <rect x="220" y="250" width="140" height="490" fill="#120e0a"/>
+  <rect x="340" y="300" width="90" height="440" fill="#0e0a06"/>
+  <rect x="410" y="180" width="130" height="560" fill="#120e0a"/>
+  <!-- Windows scattered -->
+  <g fill="#1e1208" opacity="0.55">
+    <rect x="232" y="270" width="14" height="11"/>
+    <rect x="256" y="270" width="14" height="11"/>
+    <rect x="280" y="270" width="14" height="11"/>
+    <rect x="304" y="270" width="14" height="11"/>
+    <rect x="232" y="310" width="14" height="11"/>
+    <rect x="280" y="310" width="14" height="11"/>
+    <rect x="232" y="350" width="14" height="11"/>
+    <rect x="256" y="350" width="14" height="11"/>
+    <rect x="422" y="200" width="14" height="11"/>
+    <rect x="448" y="200" width="14" height="11"/>
+    <rect x="474" y="200" width="14" height="11"/>
+    <rect x="422" y="240" width="14" height="11"/>
+    <rect x="474" y="240" width="14" height="11"/>
+  </g>
+
+  <!-- Center buildings (mid-ground) -->
+  <rect x="520" y="230" width="160" height="520" fill="#140e0a"/>
+  <rect x="650" y="160" width="120" height="590" fill="#0e0a08"/>
+  <rect x="740" y="270" width="100" height="480" fill="#140e0a"/>
+  <!-- Windows -->
+  <g fill="#241408" opacity="0.5">
+    <rect x="534" y="252" width="15" height="12"/>
+    <rect x="560" y="252" width="15" height="12"/>
+    <rect x="586" y="252" width="15" height="12"/>
+    <rect x="612" y="252" width="15" height="12"/>
+    <rect x="534" y="296" width="15" height="12"/>
+    <rect x="612" y="296" width="15" height="12"/>
+    <rect x="662" y="180" width="15" height="12"/>
+    <rect x="692" y="180" width="15" height="12"/>
+    <rect x="722" y="180" width="15" height="12"/>
+    <rect x="662" y="220" width="15" height="12"/>
+    <rect x="692" y="220" width="15" height="12"/>
+  </g>
+
+  <!-- Right buildings (closer to fire - warmer tone) -->
+  <rect x="820" y="200" width="150" height="560" fill="#1a0e08"/>
+  <rect x="940" y="280" width="110" height="480" fill="#160c08"/>
+  <rect x="1020" y="150" width="170" height="600" fill="#1a0e08"/>
+  <rect x="1160" y="220" width="130" height="540" fill="#160c08"/>
+  <rect x="1260" y="260" width="150" height="500" fill="#1a0e08"/>
+  <!-- Windows (orange/fire-lit on this side) -->
+  <g fill="#5a2008" opacity="0.65">
+    <rect x="835" y="225" width="15" height="12"/>
+    <rect x="862" y="225" width="15" height="12"/>
+    <rect x="835" y="265" width="15" height="12"/>
+    <rect x="889" y="265" width="15" height="12"/>
+    <rect x="955" y="305" width="15" height="12"/>
+    <rect x="982" y="305" width="15" height="12"/>
+    <rect x="1035" y="175" width="15" height="12"/>
+    <rect x="1065" y="175" width="15" height="12"/>
+    <rect x="1095" y="175" width="15" height="12"/>
+    <rect x="1035" y="218" width="15" height="12"/>
+    <rect x="1095" y="218" width="15" height="12"/>
+    <rect x="1175" y="245" width="15" height="12"/>
+    <rect x="1205" y="245" width="15" height="12"/>
+    <rect x="1275" y="285" width="15" height="12"/>
+    <rect x="1305" y="285" width="15" height="12"/>
+    <rect x="1335" y="285" width="15" height="12"/>
+  </g>
+
+  <!-- Far right (heavily lit by fire) -->
+  <rect x="1380" y="240" width="140" height="520" fill="#200e08"/>
+  <rect x="1490" y="200" width="120" height="560" fill="#1a0a06"/>
+  <!-- Bright orange windows -->
+  <g fill="#8a3010" opacity="0.75">
+    <rect x="1392" y="265" width="16" height="13"/>
+    <rect x="1420" y="265" width="16" height="13"/>
+    <rect x="1448" y="265" width="16" height="13"/>
+    <rect x="1392" y="308" width="16" height="13"/>
+    <rect x="1476" y="308" width="16" height="13"/>
+    <rect x="1500" y="225" width="16" height="13"/>
+    <rect x="1528" y="225" width="16" height="13"/>
+    <rect x="1556" y="225" width="16" height="13"/>
+  </g>
+
+  <!-- ── SMOKE PLUMES ── -->
+  <g opacity="0.5">
+    <!-- Major smoke plume (right, from fires) -->
+    <ellipse cx="1420" cy="200" rx="80" ry="120" fill="#2a1408"/>
+    <ellipse cx="1450" cy="150" rx="70" ry="100" fill="#221008"/>
+    <ellipse cx="1390" cy="120" rx="90" ry="110" fill="#1e0e06"/>
+    <ellipse cx="1460" cy="80" rx="100" ry="90" fill="#1a0c06"/>
+    <ellipse cx="1420" cy="40" rx="120" ry="80" fill="#160a04" opacity="0.4"/>
+    <!-- Secondary smoke -->
+    <ellipse cx="1150" cy="170" rx="60" ry="90" fill="#2a1408" opacity="0.7"/>
+    <ellipse cx="1160" cy="120" rx="70" ry="80" fill="#221008" opacity="0.6"/>
+    <ellipse cx="1140" cy="70" rx="80" ry="70" fill="#1e0e06" opacity="0.5"/>
+    <!-- Left smoke (distant) -->
+    <ellipse cx="540" cy="220" rx="45" ry="70" fill="#1a0c06" opacity="0.4"/>
+    <ellipse cx="550" cy="170" rx="55" ry="60" fill="#160a04" opacity="0.35"/>
+  </g>
+
+  <!-- Street level -->
+  <rect y="750" width="1600" height="150" fill="url(#street)"/>
+
+  <!-- Street surface markings (chaotic) -->
+  <g stroke="#180e08" stroke-width="2" opacity="0.3">
+    <line x1="0" y1="780" x2="1600" y2="780"/>
+    <line x1="0" y1="820" x2="1600" y2="820"/>
+  </g>
+
+  <!-- Military vehicle silhouettes on street -->
+  <!-- Jeep/military vehicle (left) -->
+  <rect x="120" y="760" width="180" height="65" rx="6" fill="#1a1408"/>
+  <rect x="148" y="740" width="120" height="32" rx="4" fill="#161008"/>
+  <circle cx="160" cy="830" r="22" fill="#100c06"/>
+  <circle cx="270" cy="830" r="22" fill="#100c06"/>
+
+  <!-- Larger vehicle (right side) -->
+  <rect x="900" y="755" width="240" height="75" rx="4" fill="#1a1408"/>
+  <rect x="930" y="730" width="160" height="38" rx="4" fill="#161008"/>
+  <circle cx="940" cy="835" r="24" fill="#100c06"/>
+  <circle cx="1080" cy="835" r="24" fill="#100c06"/>
+
+  <!-- Scattered debris on street (dark shapes) -->
+  <ellipse cx="500" cy="800" rx="30" ry="12" fill="#120a06" opacity="0.7"/>
+  <ellipse cx="680" cy="810" rx="20" ry="8" fill="#120a06" opacity="0.6"/>
+  <rect x="760" y="795" width="40" height="15" fill="#120a06" rx="3" opacity="0.6"/>
+
+  <!-- Film grain -->
+  <rect width="1600" height="900" opacity="0.07" fill="white" filter="url(#grain)"/>
+
+  <!-- Strong vignette for heavy mood -->
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+
+  <!-- Bottom darkness -->
+  <rect y="840" width="1600" height="60" fill="#000000" opacity="0.5"/>
+</svg>

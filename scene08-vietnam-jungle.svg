@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Sky/mist gradient (visible through canopy gaps) -->
+    <linearGradient id="sky-mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e2d18"/>
+      <stop offset="100%" stop-color="#3a4828"/>
+    </linearGradient>
+    <!-- Ground gradient -->
+    <linearGradient id="jungle-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2210"/>
+      <stop offset="100%" stop-color="#0a0e06"/>
+    </linearGradient>
+    <!-- Mist gradient (center background) -->
+    <radialGradient id="mist" cx="50%" cy="42%" r="35%">
+      <stop offset="0%" stop-color="#7a8a68" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Shaft of jungle light -->
+    <linearGradient id="light-shaft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a9878" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <!-- Vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.8"/>
+    </radialGradient>
+    <!-- Film grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay"/>
+    </filter>
+  </defs>
+
+  <!-- Base: jungle background -->
+  <rect width="1600" height="900" fill="#0a0e06"/>
+
+  <!-- Background sky glimpse (through canopy) -->
+  <rect y="0" width="1600" height="350" fill="url(#sky-mist)"/>
+
+  <!-- ── BACKGROUND JUNGLE (mid-distance) ── -->
+  <!-- Far background trees and foliage -->
+  <ellipse cx="300" cy="350" rx="200" ry="160" fill="#1e2c12"/>
+  <ellipse cx="550" cy="320" rx="180" ry="180" fill="#182610"/>
+  <ellipse cx="800" cy="310" rx="220" ry="200" fill="#1e2c12"/>
+  <ellipse cx="1050" cy="325" rx="190" ry="175" fill="#182610"/>
+  <ellipse cx="1300" cy="340" rx="200" ry="165" fill="#1e2c12"/>
+
+  <!-- Mist in middle ground -->
+  <rect width="1600" height="900" fill="url(#mist)"/>
+
+  <!-- Light shafts filtering through -->
+  <polygon points="650,0 700,0 900,600 850,600" fill="url(#light-shaft)"/>
+  <polygon points="850,0 880,0 1050,600 1020,600" fill="url(#light-shaft)" opacity="0.6"/>
+
+  <!-- Ground -->
+  <rect y="720" width="1600" height="180" fill="url(#jungle-ground)"/>
+  <!-- Ground foliage/vegetation -->
+  <ellipse cx="0" cy="750" rx="180" ry="80" fill="#0e1808"/>
+  <ellipse cx="250" cy="780" rx="160" ry="60" fill="#121e0a"/>
+  <ellipse cx="500" cy="760" rx="140" ry="55" fill="#0e1808"/>
+  <ellipse cx="1100" cy="770" rx="150" ry="60" fill="#0e1808"/>
+  <ellipse cx="1350" cy="755" rx="160" ry="65" fill="#121e0a"/>
+  <ellipse cx="1600" cy="765" rx="180" ry="70" fill="#0e1808"/>
+
+  <!-- ── LEFT SIDE FOLIAGE (dense jungle wall) ── -->
+  <rect x="0" y="0" width="280" height="900" fill="#0e1808"/>
+  <ellipse cx="0" cy="200" rx="200" ry="250" fill="#121e0a"/>
+  <ellipse cx="80" cy="400" rx="180" ry="300" fill="#0e1808"/>
+  <ellipse cx="0" cy="650" rx="220" ry="280" fill="#121e0a"/>
+  <!-- Overhanging branches left -->
+  <path d="M0,80 Q120,40 280,140 Q200,200 100,180 Q60,160 0,80Z" fill="#162410"/>
+  <path d="M0,250 Q150,180 300,280 Q220,340 80,320 Q30,300 0,250Z" fill="#0e1808"/>
+  <path d="M0,480 Q130,420 260,500 Q200,560 70,540 Q20,520 0,480Z" fill="#162410"/>
+
+  <!-- ── RIGHT SIDE FOLIAGE (dense jungle wall) ── -->
+  <rect x="1320" y="0" width="280" height="900" fill="#0e1808"/>
+  <ellipse cx="1600" cy="200" rx="200" ry="250" fill="#121e0a"/>
+  <ellipse cx="1520" cy="420" rx="180" ry="290" fill="#0e1808"/>
+  <ellipse cx="1600" cy="660" rx="210" ry="270" fill="#121e0a"/>
+  <!-- Overhanging branches right -->
+  <path d="M1600,100 Q1480,55 1320,150 Q1400,210 1500,190 Q1560,170 1600,100Z" fill="#162410"/>
+  <path d="M1600,300 Q1460,230 1300,320 Q1380,380 1510,360 Q1570,340 1600,300Z" fill="#0e1808"/>
+  <path d="M1600,520 Q1470,460 1330,540 Q1410,600 1540,575 Q1585,555 1600,520Z" fill="#162410"/>
+
+  <!-- ── TOP CANOPY (overhead jungle) ── -->
+  <ellipse cx="200" cy="0" rx="280" ry="200" fill="#0a1006"/>
+  <ellipse cx="500" cy="0" rx="300" ry="220" fill="#121e0a"/>
+  <ellipse cx="800" cy="0" rx="340" ry="210" fill="#0a1006"/>
+  <ellipse cx="1100" cy="0" rx="320" ry="215" fill="#121e0a"/>
+  <ellipse cx="1400" cy="0" rx="290" ry="205" fill="#0a1006"/>
+  <!-- Canopy foreground leaves -->
+  <ellipse cx="100" cy="0" rx="200" ry="130" fill="#0e1808"/>
+  <ellipse cx="380" cy="0" rx="240" ry="145" fill="#0a1006"/>
+  <ellipse cx="650" cy="0" rx="260" ry="135" fill="#0e1808"/>
+  <ellipse cx="950" cy="0" rx="270" ry="150" fill="#0a1006"/>
+  <ellipse cx="1250" cy="0" rx="250" ry="140" fill="#0e1808"/>
+  <ellipse cx="1530" cy="0" rx="220" ry="130" fill="#0a1006"/>
+
+  <!-- ── SOLDIER SILHOUETTES (single file, center, moving away) ── -->
+  <!-- Trail through jungle (lighter ground strip) -->
+  <rect x="740" y="640" width="90" height="280" fill="#121a0a" opacity="0.8"/>
+
+  <!-- Soldier 5 (furthest, smallest) -->
+  <g transform="translate(796, 630) scale(0.55)">
+    <!-- Helmet -->
+    <ellipse cx="0" cy="-48" rx="16" ry="10" fill="#1a2010"/>
+    <!-- Head -->
+    <circle cx="0" cy="-35" r="10" fill="#1a2010"/>
+    <!-- Body/uniform -->
+    <rect x="-10" y="-25" width="20" height="35" fill="#1a2010"/>
+    <!-- Rifle (carried across body) -->
+    <line x1="-18" y1="-15" x2="18" y2="-5" stroke="#1a2010" stroke-width="4"/>
+    <!-- Legs (walking) -->
+    <line x1="-5" y1="10" x2="-12" y2="40" stroke="#1a2010" stroke-width="8"/>
+    <line x1="5" y1="10" x2="10" y2="40" stroke="#1a2010" stroke-width="8"/>
+    <!-- Pack on back -->
+    <rect x="8" y="-22" width="14" height="22" fill="#1a2010"/>
+  </g>
+
+  <!-- Soldier 4 -->
+  <g transform="translate(790, 660) scale(0.65)">
+    <ellipse cx="0" cy="-48" rx="16" ry="10" fill="#162010"/>
+    <circle cx="0" cy="-35" r="10" fill="#162010"/>
+    <rect x="-10" y="-25" width="20" height="35" fill="#162010"/>
+    <line x1="-18" y1="-10" x2="22" y2="-20" stroke="#162010" stroke-width="4"/>
+    <line x1="-5" y1="10" x2="-8" y2="42" stroke="#162010" stroke-width="9"/>
+    <line x1="5" y1="10" x2="12" y2="40" stroke="#162010" stroke-width="9"/>
+    <rect x="8" y="-22" width="14" height="22" fill="#162010"/>
+  </g>
+
+  <!-- Soldier 3 (middle) -->
+  <g transform="translate(785, 695) scale(0.78)">
+    <ellipse cx="0" cy="-50" rx="18" ry="11" fill="#162010"/>
+    <circle cx="0" cy="-36" r="12" fill="#162010"/>
+    <rect x="-12" y="-24" width="24" height="38" fill="#162010"/>
+    <line x1="-20" y1="-8" x2="25" y2="-18" stroke="#162010" stroke-width="5"/>
+    <line x1="-6" y1="14" x2="-14" y2="48" stroke="#162010" stroke-width="10"/>
+    <line x1="6" y1="14" x2="14" y2="46" stroke="#162010" stroke-width="10"/>
+    <rect x="10" y="-22" width="16" height="25" fill="#162010"/>
+  </g>
+
+  <!-- Soldier 2 -->
+  <g transform="translate(778, 735) scale(0.88)">
+    <ellipse cx="0" cy="-52" rx="19" ry="12" fill="#1a2414"/>
+    <circle cx="0" cy="-37" r="13" fill="#1a2414"/>
+    <rect x="-13" y="-24" width="26" height="40" fill="#1a2414"/>
+    <line x1="-22" y1="-6" x2="28" y2="-16" stroke="#1a2414" stroke-width="5"/>
+    <line x1="-7" y1="16" x2="-16" y2="52" stroke="#1a2414" stroke-width="11"/>
+    <line x1="7" y1="16" x2="16" y2="50" stroke="#1a2414" stroke-width="11"/>
+    <rect x="11" y="-22" width="17" height="27" fill="#1a2414"/>
+  </g>
+
+  <!-- Soldier 1 (nearest, largest) -->
+  <g transform="translate(770, 785) scale(1.0)">
+    <ellipse cx="0" cy="-55" rx="22" ry="13" fill="#1e2816"/>
+    <circle cx="0" cy="-38" r="15" fill="#1e2816"/>
+    <rect x="-15" y="-23" width="30" height="45" fill="#1e2816"/>
+    <!-- Rifle on shoulder -->
+    <line x1="-25" y1="-5" x2="32" y2="-22" stroke="#1e2816" stroke-width="6"/>
+    <!-- Arms -->
+    <line x1="-15" y1="0" x2="-28" y2="18" stroke="#1e2816" stroke-width="8"/>
+    <line x1="15" y1="0" x2="30" y2="12" stroke="#1e2816" stroke-width="8"/>
+    <!-- Legs (walking pose) -->
+    <line x1="-8" y1="22" x2="-18" y2="60" stroke="#1e2816" stroke-width="13"/>
+    <line x1="8" y1="22" x2="18" y2="58" stroke="#1e2816" stroke-width="13"/>
+    <!-- Pack -->
+    <rect x="13" y="-20" width="20" height="30" fill="#1e2816"/>
+  </g>
+
+  <!-- Film grain -->
+  <rect width="1600" height="900" opacity="0.07" fill="white" filter="url(#grain)"/>
+
+  <!-- Heavy vignette for jungle claustrophobia -->
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+
+  <!-- Top canopy darkness overlay -->
+  <rect width="1600" height="200" fill="#000000" opacity="0.4"/>
+  <!-- Bottom ground shadow -->
+  <rect y="800" width="1600" height="100" fill="#000000" opacity="0.6"/>
+</svg>

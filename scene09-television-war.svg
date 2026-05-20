@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Room darkness gradient -->
+    <linearGradient id="room-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0808"/>
+      <stop offset="100%" stop-color="#060404"/>
+    </linearGradient>
+    <!-- TV screen glow -->
+    <radialGradient id="tv-glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#9ab0c8" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#6888a8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3a5878" stop-opacity="0.5"/>
+    </radialGradient>
+    <!-- Room glow from TV light -->
+    <radialGradient id="room-glow" cx="62%" cy="48%" r="45%">
+      <stop offset="0%" stop-color="#3a5878" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="65%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.9"/>
+    </radialGradient>
+    <!-- Film grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay"/>
+    </filter>
+    <!-- TV static -->
+    <filter id="tv-static">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 0.6  0 0 0 0 0.75  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+
+  <!-- Room background -->
+  <rect width="1600" height="900" fill="url(#room-bg)"/>
+
+  <!-- Room walls and floor suggestion -->
+  <!-- Wall paneling lines (1960s wood paneling) -->
+  <g stroke="#120e0a" stroke-width="1" opacity="0.35">
+    <line x1="0" y1="150" x2="1600" y2="150"/>
+    <line x1="0" y1="350" x2="1600" y2="350"/>
+    <line x1="0" y1="550" x2="1600" y2="550"/>
+    <line x1="0" y1="750" x2="1600" y2="750"/>
+    <!-- Vertical panels -->
+    <line x1="200" y1="0" x2="200" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="750"/>
+    <line x1="600" y1="0" x2="600" y2="750"/>
+    <line x1="800" y1="0" x2="800" y2="750"/>
+    <line x1="1000" y1="0" x2="1000" y2="750"/>
+    <line x1="1200" y1="0" x2="1200" y2="750"/>
+    <line x1="1400" y1="0" x2="1400" y2="750"/>
+  </g>
+
+  <!-- Floor -->
+  <rect y="750" width="1600" height="150" fill="#0c0a06"/>
+  <!-- Floor lines -->
+  <g stroke="#140e08" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="780" x2="1600" y2="780"/>
+    <line x1="0" y1="820" x2="1600" y2="820"/>
+    <line x1="0" y1="860" x2="1600" y2="860"/>
+    <line x1="0" y1="900" x2="1600" y2="900"/>
+  </g>
+
+  <!-- TV glow effect on room (light cast on walls/floor) -->
+  <rect width="1600" height="900" fill="url(#room-glow)"/>
+
+  <!-- ── 1960s TELEVISION SET (console style) ── -->
+  <!-- TV Stand/Console legs -->
+  <rect x="822" y="720" width="18" height="80" fill="#1a1408" rx="3"/>
+  <rect x="1110" y="720" width="18" height="80" fill="#1a1408" rx="3"/>
+  <!-- Leg crossbar -->
+  <rect x="822" y="775" width="306" height="10" fill="#1a1408" rx="2"/>
+
+  <!-- TV Cabinet body (console) -->
+  <rect x="770" y="380" width="420" height="360" rx="8" fill="#1a1408"/>
+  <!-- Cabinet bevels/details -->
+  <rect x="776" y="386" width="408" height="348" rx="6" fill="#1e1a10" opacity="0.5"/>
+
+  <!-- TV Screen frame (darker inset) -->
+  <rect x="800" y="400" width="340" height="270" rx="12" fill="#0a0804"/>
+  <!-- Screen inner (the actual screen) -->
+  <rect x="808" y="408" width="324" height="254" rx="8" fill="url(#tv-glow)"/>
+
+  <!-- TV Screen content: news broadcast -->
+  <!-- Screen static/noise overlay -->
+  <rect x="808" y="408" width="324" height="254" rx="8" fill="white" filter="url(#tv-static)" opacity="0.12"/>
+
+  <!-- On-screen: horizontal news bar (bottom of screen) -->
+  <rect x="808" y="620" width="324" height="40" fill="#1a2840" opacity="0.85"/>
+  <text x="970" y="646" font-family="'Courier New', monospace" font-size="13" fill="#a0c0e0" text-anchor="middle" font-weight="bold" letter-spacing="1">CBS EVENING NEWS</text>
+
+  <!-- On-screen: anchor desk silhouette (simplified) -->
+  <!-- Desk -->
+  <rect x="848" y="565" width="240" height="60" fill="#2a3848" opacity="0.8"/>
+  <!-- Anchor figure (silhouette) -->
+  <rect x="928" y="480" width="100" height="95" fill="#1e2c3c" opacity="0.9" rx="4"/>
+  <!-- Anchor head -->
+  <ellipse cx="978" cy="475" rx="28" ry="32" fill="#1e2c3c" opacity="0.9"/>
+
+  <!-- TV Scanlines (overlaid on screen) -->
+  <g stroke="#000000" stroke-width="1.5" opacity="0.15">
+    <line x1="808" y1="420" x2="1132" y2="420"/>
+    <line x1="808" y1="428" x2="1132" y2="428"/>
+    <line x1="808" y1="436" x2="1132" y2="436"/>
+    <line x1="808" y1="444" x2="1132" y2="444"/>
+    <line x1="808" y1="452" x2="1132" y2="452"/>
+    <line x1="808" y1="460" x2="1132" y2="460"/>
+    <line x1="808" y1="468" x2="1132" y2="468"/>
+    <line x1="808" y1="476" x2="1132" y2="476"/>
+    <line x1="808" y1="484" x2="1132" y2="484"/>
+    <line x1="808" y1="492" x2="1132" y2="492"/>
+    <line x1="808" y1="500" x2="1132" y2="500"/>
+    <line x1="808" y1="508" x2="1132" y2="508"/>
+    <line x1="808" y1="516" x2="1132" y2="516"/>
+    <line x1="808" y1="524" x2="1132" y2="524"/>
+    <line x1="808" y1="532" x2="1132" y2="532"/>
+    <line x1="808" y1="540" x2="1132" y2="540"/>
+    <line x1="808" y1="548" x2="1132" y2="548"/>
+    <line x1="808" y1="556" x2="1132" y2="556"/>
+    <line x1="808" y1="564" x2="1132" y2="564"/>
+    <line x1="808" y1="572" x2="1132" y2="572"/>
+    <line x1="808" y1="580" x2="1132" y2="580"/>
+    <line x1="808" y1="588" x2="1132" y2="588"/>
+    <line x1="808" y1="596" x2="1132" y2="596"/>
+    <line x1="808" y1="604" x2="1132" y2="604"/>
+    <line x1="808" y1="612" x2="1132" y2="612"/>
+  </g>
+
+  <!-- TV knobs and controls (below screen) -->
+  <circle cx="835" cy="700" r="12" fill="#141008" stroke="#2a2418" stroke-width="2"/>
+  <circle cx="870" cy="700" r="10" fill="#141008" stroke="#2a2418" stroke-width="2"/>
+  <circle cx="1100" cy="700" r="12" fill="#141008" stroke="#2a2418" stroke-width="2"/>
+  <circle cx="1135" cy="700" r="10" fill="#141008" stroke="#2a2418" stroke-width="2"/>
+  <!-- Speaker grille (left of screen) -->
+  <g stroke="#1e1a10" stroke-width="2" opacity="0.5">
+    <line x1="780" y1="420" x2="800" y2="420"/>
+    <line x1="780" y1="435" x2="800" y2="435"/>
+    <line x1="780" y1="450" x2="800" y2="450"/>
+    <line x1="780" y1="465" x2="800" y2="465"/>
+    <line x1="780" y1="480" x2="800" y2="480"/>
+    <line x1="780" y1="495" x2="800" y2="495"/>
+    <line x1="780" y1="510" x2="800" y2="510"/>
+    <line x1="780" y1="525" x2="800" y2="525"/>
+    <line x1="780" y1="540" x2="800" y2="540"/>
+  </g>
+
+  <!-- TV antenna -->
+  <line x1="950" y1="380" x2="900" y2="300" stroke="#2a2418" stroke-width="6" stroke-linecap="round"/>
+  <line x1="1010" y1="380" x2="1060" y2="300" stroke="#2a2418" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- ── FAMILY SILHOUETTES (watching TV) ── -->
+
+  <!-- Couch/sofa (dark silhouette) -->
+  <rect x="150" y="680" width="580" height="100" rx="12" fill="#0e0c08"/>
+  <rect x="150" y="668" width="580" height="25" rx="8" fill="#0c0a06"/><!-- Back cushion top -->
+  <!-- Couch arms -->
+  <rect x="140" y="668" width="40" height="112" rx="8" fill="#0c0a06"/>
+  <rect x="690" y="668" width="40" height="112" rx="8" fill="#0c0a06"/>
+
+  <!-- Adult 1 (left, on couch) -->
+  <!-- Head -->
+  <ellipse cx="260" cy="635" rx="28" ry="32" fill="#0e0c08"/>
+  <!-- Torso (seated, reclining slightly) -->
+  <rect x="232" y="660" width="56" height="60" fill="#0e0c08" rx="4"/>
+  <!-- Arm on armrest -->
+  <rect x="155" y="696" width="80" height="18" rx="6" fill="#0e0c08"/>
+
+  <!-- Adult 2 (right, on couch) -->
+  <ellipse cx="610" cy="630" rx="26" ry="30" fill="#0e0c08"/>
+  <rect x="584" y="654" width="52" height="65" fill="#0e0c08" rx="4"/>
+  <!-- Arm resting on back of couch -->
+  <rect x="595" y="640" width="110" height="16" rx="6" fill="#0e0c08"/>
+
+  <!-- Child on floor (sitting cross-legged, foreground) -->
+  <ellipse cx="430" cy="775" rx="35" ry="30" fill="#0c0a06"/><!-- Head -->
+  <!-- Body sitting -->
+  <ellipse cx="430" cy="820" rx="45" ry="35" fill="#0c0a06"/>
+  <!-- Cross-legged feet suggestion -->
+  <ellipse cx="395" cy="845" rx="25" ry="14" fill="#0c0a06"/>
+  <ellipse cx="465" cy="845" rx="25" ry="14" fill="#0c0a06"/>
+
+  <!-- Film grain -->
+  <rect width="1600" height="900" opacity="0.06" fill="white" filter="url(#grain)"/>
+
+  <!-- Heavy vignette (dark room feel) -->
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>

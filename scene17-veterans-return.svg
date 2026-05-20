@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Airport interior gradient -->
+    <linearGradient id="terminal-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e0c0a"/>
+      <stop offset="50%" stop-color="#0a0806"/>
+      <stop offset="100%" stop-color="#060402"/>
+    </linearGradient>
+    <!-- Ceiling light gradient (god rays) -->
+    <linearGradient id="ceiling-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a08860" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <!-- Floor reflection -->
+    <linearGradient id="floor-reflect" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e0c08"/>
+      <stop offset="100%" stop-color="#060402"/>
+    </linearGradient>
+    <!-- Light shaft (center, god ray from above) -->
+    <linearGradient id="god-ray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8a870" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <!-- Vignette -->
+    <radialGradient id="vignette" cx="50%" cy="40%" r="65%">
+      <stop offset="10%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.88"/>
+    </radialGradient>
+    <!-- Film grain -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay"/>
+    </filter>
+  </defs>
+
+  <!-- Terminal background -->
+  <rect width="1600" height="900" fill="url(#terminal-bg)"/>
+
+  <!-- ── CEILING / UPPER STRUCTURE ── -->
+  <!-- Ceiling beams (receding perspective) -->
+  <g stroke="#1e1a10" stroke-width="2" fill="#0e0c08" opacity="0.8">
+    <!-- Main ceiling panels -->
+    <rect x="0" y="0" width="1600" height="120" fill="#100e0a"/>
+    <!-- Beam lines (perspective) -->
+    <line x1="800" y1="0" x2="0" y2="180" stroke="#1a1610" stroke-width="3" opacity="0.5"/>
+    <line x1="800" y1="0" x2="400" y2="180" stroke="#1a1610" stroke-width="3" opacity="0.5"/>
+    <line x1="800" y1="0" x2="800" y2="200" stroke="#1a1610" stroke-width="3" opacity="0.5"/>
+    <line x1="800" y1="0" x2="1200" y2="180" stroke="#1a1610" stroke-width="3" opacity="0.5"/>
+    <line x1="800" y1="0" x2="1600" y2="180" stroke="#1a1610" stroke-width="3" opacity="0.5"/>
+    <!-- Cross beams -->
+    <line x1="0" y1="80" x2="1600" y2="80" stroke="#1a1610" stroke-width="2" opacity="0.4"/>
+    <line x1="0" y1="150" x2="1600" y2="150" stroke="#1a1610" stroke-width="2" opacity="0.35"/>
+  </g>
+
+  <!-- Ceiling fluorescent light fixtures -->
+  <g fill="#a08860" opacity="0.4">
+    <rect x="300" y="20" width="180" height="8" rx="2"/>
+    <rect x="660" y="20" width="280" height="8" rx="2"/>
+    <rect x="1120" y="20" width="180" height="8" rx="2"/>
+    <rect x="200" y="70" width="120" height="6" rx="2" opacity="0.6"/>
+    <rect x="500" y="70" width="180" height="6" rx="2" opacity="0.6"/>
+    <rect x="900" y="70" width="180" height="6" rx="2" opacity="0.6"/>
+    <rect x="1250" y="70" width="140" height="6" rx="2" opacity="0.6"/>
+  </g>
+
+  <!-- ── LIGHT SHAFTS FROM WINDOWS (high terminal windows) ── -->
+  <!-- Left side windows with light shafts -->
+  <polygon points="50,80 200,80 350,700 150,700" fill="url(#god-ray)" opacity="0.6"/>
+  <polygon points="250,80 380,80 480,700 310,700" fill="url(#god-ray)" opacity="0.4"/>
+
+  <!-- Center light shaft (on the veteran) -->
+  <polygon points="680,60 920,60 980,900 620,900" fill="url(#god-ray)" opacity="0.7"/>
+
+  <!-- Right side windows -->
+  <polygon points="1220,80 1350,80 1290,700 1100,700" fill="url(#god-ray)" opacity="0.4"/>
+  <polygon points="1400,80 1550,80 1600,700 1420,700" fill="url(#god-ray)" opacity="0.5"/>
+
+  <!-- ── TERMINAL ARCHITECTURE ── -->
+  <!-- Left wall  -->
+  <rect x="0" y="0" width="100" height="900" fill="#0a0806"/>
+  <!-- Right wall -->
+  <rect x="1500" y="0" width="100" height="900" fill="#0a0806"/>
+
+  <!-- Floor (reflecting linoleum) -->
+  <rect y="720" width="1600" height="180" fill="url(#floor-reflect)"/>
+  <!-- Floor reflection lines (grid) -->
+  <g stroke="#140e08" stroke-width="1" opacity="0.5">
+    <!-- Horizontal -->
+    <line x1="0" y1="750" x2="1600" y2="750"/>
+    <line x1="0" y1="780" x2="1600" y2="780"/>
+    <line x1="0" y1="810" x2="1600" y2="810"/>
+    <line x1="0" y1="840" x2="1600" y2="840"/>
+    <line x1="0" y1="870" x2="1600" y2="870"/>
+    <!-- Vertical (perspective receding) -->
+    <line x1="800" y1="720" x2="0" y2="900"/>
+    <line x1="800" y1="720" x2="267" y2="900"/>
+    <line x1="800" y1="720" x2="533" y2="900"/>
+    <line x1="800" y1="720" x2="1067" y2="900"/>
+    <line x1="800" y1="720" x2="1333" y2="900"/>
+    <line x1="800" y1="720" x2="1600" y2="900"/>
+  </g>
+
+  <!-- Terminal seating (rows of chairs, mid-ground) -->
+  <g fill="#120e08" opacity="0.6">
+    <!-- Left seating -->
+    <rect x="120" y="540" width="260" height="80" rx="4"/>
+    <rect x="120" y="530" width="260" height="20" rx="4" fill="#0e0a06"/>
+    <rect x="130" y="618" width="20" height="40" rx="2"/>
+    <rect x="175" y="618" width="20" height="40" rx="2"/>
+    <rect x="220" y="618" width="20" height="40" rx="2"/>
+    <rect x="265" y="618" width="20" height="40" rx="2"/>
+    <rect x="310" y="618" width="20" height="40" rx="2"/>
+    <rect x="355" y="618" width="20" height="40" rx="2"/>
+    <!-- Right seating -->
+    <rect x="1220" y="540" width="260" height="80" rx="4"/>
+    <rect x="1220" y="530" width="260" height="20" rx="4" fill="#0e0a06"/>
+    <rect x="1230" y="618" width="20" height="40" rx="2"/>
+    <rect x="1275" y="618" width="20" height="40" rx="2"/>
+    <rect x="1320" y="618" width="20" height="40" rx="2"/>
+    <rect x="1365" y="618" width="20" height="40" rx="2"/>
+    <rect x="1410" y="618" width="20" height="40" rx="2"/>
+  </g>
+
+  <!-- ── OTHER PASSENGERS (not looking at veteran) ── -->
+
+  <!-- Left background figures (2-3, looking away, passing) -->
+  <!-- Figure A (far left, walking toward left) -->
+  <g transform="translate(180, 490) scale(0.8)">
+    <ellipse cx="0" cy="-55" rx="18" ry="21" fill="#1a1610" opacity="0.7"/>
+    <rect x="-18" y="-34" width="36" height="55" rx="4" fill="#1a1610" opacity="0.7"/>
+    <line x1="-18" y1="-10" x2="-36" y2="10" stroke="#1a1610" stroke-width="10" opacity="0.7"/>
+    <line x1="18" y1="-5" x2="30" y2="12" stroke="#1a1610" stroke-width="10" opacity="0.7"/>
+    <line x1="-10" y1="21" x2="-15" y2="65" stroke="#1a1610" stroke-width="12" opacity="0.7"/>
+    <line x1="10" y1="21" x2="18" y2="65" stroke="#1a1610" stroke-width="12" opacity="0.7"/>
+    <!-- Head turned away -->
+    <ellipse cx="-6" cy="-55" rx="18" ry="21" fill="#1a1610" opacity="0.7"/>
+  </g>
+
+  <!-- Figure B (left-center, seated, reading) -->
+  <g transform="translate(320, 560) scale(0.75)">
+    <ellipse cx="0" cy="-45" rx="16" ry="19" fill="#1a1610" opacity="0.65"/>
+    <rect x="-15" y="-28" width="30" height="40" rx="3" fill="#1a1610" opacity="0.65"/>
+    <!-- Reading a newspaper/paper (arms extended) -->
+    <line x1="-15" y1="-15" x2="-30" y2="-5" stroke="#1a1610" stroke-width="8" opacity="0.65"/>
+    <line x1="15" y1="-15" x2="30" y2="-5" stroke="#1a1610" stroke-width="8" opacity="0.65"/>
+    <!-- Newspaper block -->
+    <rect x="-35" y="-20" width="70" height="45" rx="3" fill="#141210" opacity="0.6"/>
+  </g>
+
+  <!-- Right side figures (walking past, not looking) -->
+  <!-- Figure C (right, walking right) -->
+  <g transform="translate(1280, 480) scale(0.82)">
+    <ellipse cx="0" cy="-52" rx="17" ry="20" fill="#1a1610" opacity="0.7"/>
+    <rect x="-16" y="-32" width="32" height="52" rx="4" fill="#1a1610" opacity="0.7"/>
+    <line x1="-16" y1="-8" x2="-32" y2="10" stroke="#1a1610" stroke-width="10" opacity="0.7"/>
+    <line x1="16" y1="-8" x2="28" y2="10" stroke="#1a1610" stroke-width="10" opacity="0.7"/>
+    <line x1="-9" y1="20" x2="-12" y2="62" stroke="#1a1610" stroke-width="12" opacity="0.7"/>
+    <line x1="9" y1="20" x2="16" y2="62" stroke="#1a1610" stroke-width="12" opacity="0.7"/>
+  </g>
+
+  <!-- Figure D (right, slightly closer) -->
+  <g transform="translate(1380, 510) scale(0.88)">
+    <ellipse cx="0" cy="-52" rx="17" ry="20" fill="#1a1610" opacity="0.65"/>
+    <rect x="-16" y="-32" width="32" height="52" rx="4" fill="#1a1610" opacity="0.65"/>
+    <line x1="-16" y1="-8" x2="-28" y2="12" stroke="#1a1610" stroke-width="10" opacity="0.65"/>
+    <line x1="16" y1="-8" x2="30" y2="10" stroke="#1a1610" stroke-width="10" opacity="0.65"/>
+    <line x1="-9" y1="20" x2="-14" y2="64" stroke="#1a1610" stroke-width="12" opacity="0.65"/>
+    <line x1="9" y1="20" x2="16" y2="64" stroke="#1a1610" stroke-width="12" opacity="0.65"/>
+    <!-- Small bag/luggage -->
+    <rect x="18" y="10" width="22" height="28" rx="3" fill="#1a1610" opacity="0.65"/>
+  </g>
+
+  <!-- ── CENTRAL FIGURE: THE VETERAN (solitary, center, returning) ── -->
+  <!-- Standing alone in the light shaft, mid-ground -->
+  <g transform="translate(795, 430)">
+    <!-- Head (in partial military-style short hair) -->
+    <ellipse cx="0" cy="-65" rx="22" ry="26" fill="#1e1c14"/>
+    <!-- Military jacket/uniform (slightly rough, civilian-ish) -->
+    <rect x="-22" y="-39" width="44" height="65" rx="4" fill="#1e1c14"/>
+    <!-- Collar/lapels (jacket detail) -->
+    <polygon points="-10,-39 0,-25 -22,-39" fill="#1a1810"/>
+    <polygon points="10,-39 0,-25 22,-39" fill="#1a1810"/>
+    <!-- Campaign ribbons on chest (small rectangles) -->
+    <rect x="-18" y="-35" width="8" height="5" fill="#2a1808" opacity="0.7"/>
+    <rect x="-8" y="-35" width="8" height="5" fill="#1a2808" opacity="0.7"/>
+    <rect x="2" y="-35" width="8" height="5" fill="#281808" opacity="0.7"/>
+    <!-- Arms (hanging, slightly carrying small bag) -->
+    <line x1="-22" y1="-20" x2="-35" y2="25" stroke="#1e1c14" stroke-width="14"/>
+    <line x1="22" y1="-20" x2="38" y2="20" stroke="#1e1c14" stroke-width="14"/>
+    <!-- Bag in right hand (small duffel) -->
+    <rect x="30" y="12" width="28" height="20" rx="4" fill="#1a1810"/>
+    <!-- Legs (standing, weight on one leg) -->
+    <line x1="-10" y1="26" x2="-15" y2="85" stroke="#1e1c14" stroke-width="17"/>
+    <line x1="10" y1="26" x2="18" y2="85" stroke="#1e1c14" stroke-width="17"/>
+    <!-- Boots -->
+    <rect x="-26" y="82" width="22" height="14" rx="3" fill="#1a1610"/>
+    <rect x="8" y="82" width="22" height="14" rx="3" fill="#1a1610"/>
+    <!-- Shadow (cast on floor) -->
+    <ellipse cx="5" cy="100" rx="35" ry="8" fill="#0a0806" opacity="0.5"/>
+  </g>
+
+  <!-- Slight light glow around veteran (from above) -->
+  <radialGradient id="vet-glow" cx="50%" cy="48%" r="12%">
+    <stop offset="0%" stop-color="#8a7040" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </radialGradient>
+  <rect width="1600" height="900" fill="url(#vet-glow)"/>
+
+  <!-- Film grain -->
+  <rect width="1600" height="900" opacity="0.07" fill="white" filter="url(#grain)"/>
+
+  <!-- Heavy vignette for isolation feel -->
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>
