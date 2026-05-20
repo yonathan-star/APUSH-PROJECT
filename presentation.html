@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>America At War With Itself — APUSH 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ───────────────────────────────
+     ATMOSPHERIC OVERLAYS
+──────────────────────────────── -->
+<div class="grain-overlay"    aria-hidden="true"></div>
+<div class="scanline-overlay" aria-hidden="true"></div>
+<div class="vignette-overlay" aria-hidden="true"></div>
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- ───────────────────────────────
+     PRESENTATION CONTAINER
+──────────────────────────────── -->
+<div class="presentation" id="presentation">
+
+  <!-- ══════════════════════════════
+       SCENE 00 — TITLE CARD
+  ══════════════════════════════ -->
+  <section class="scene scene--title active" data-scene="0" aria-label="Title">
+
+    <!-- Faint background texture -->
+    <div class="scene-bg" style="background: radial-gradient(ellipse at 25% 60%, rgba(139,26,26,0.12) 0%, transparent 55%), radial-gradient(ellipse at 75% 40%, rgba(45,58,32,0.10) 0%, transparent 55%);"></div>
+
+    <div class="scene-content" style="z-index:10; text-align:center; flex-direction:column;">
+
+      <p class="label-act animate-fade-in delay-1">An APUSH Historical Documentary</p>
+
+      <h1 class="title-main title-main--huge animate-fade-up delay-2" style="text-align:center; max-width: 900px; line-height: 1.0;">
+        AMERICA<br>AT WAR<br>WITH ITSELF
+      </h1>
+
+      <div class="divider animate-fade-in delay-3"></div>
+
+      <p class="title-sub animate-fade-up delay-3" style="max-width: 50ch; text-align:center;">
+        Vietnam, the Draft, and the Fracture of the American Dream
+      </p>
+
+      <div class="animate-fade-in delay-4" style="margin-top: 2.5rem; display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+        <p class="caption" style="letter-spacing: 0.25em; text-transform: uppercase; font-style:normal; font-size: 0.6rem; color: var(--text-muted);">
+          Inspired by the protest music of 1969
+        </p>
+        <p class="caption" style="letter-spacing: 0.2em; text-transform: uppercase; font-style:normal; font-size: 0.55rem; color: var(--text-dim);">
+          "Fortunate Son" — Creedence Clearwater Revival
+        </p>
+      </div>
+
+      <p class="animate-fade-in delay-5" style="margin-top: 4rem; font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--text-dim);">
+        Press <span style="color: var(--accent-gold);">→</span> or click to begin
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 01 — PROLOGUE: THE PROMISE
+  ══════════════════════════════ -->
+  <section class="scene scene--immersive" data-scene="1" aria-label="Prologue: The Promise">
+
+    <div class="image-panel" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+      <img src="assets/scene01-promise-1950s.svg" alt="1950s American suburb — houses, trees, white picket fence, American flag" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.5) brightness(0.42) contrast(1.15);">
+    </div>
+
+    <!-- Gradient overlay -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, rgba(6,4,2,0.92) 0%, rgba(6,4,2,0.70) 55%, rgba(6,4,2,0.15) 100%); z-index:5;"></div>
+
+    <div style="position:relative; z-index:10; padding: 4rem 8%; max-width: 700px; align-self: center;">
+
+      <p class="dateline animate-fade-in delay-1">United States — 1945–1965</p>
+
+      <h2 class="headline animate-fade-up delay-1">
+        The Promise of America
+      </h2>
+
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+
+      <p class="body-text animate-fade-up delay-2">
+        The soldiers who came home from World War II built something extraordinary. Subdivisions rose from farmland. Factories hummed. Children grew up in the certainty that the American Dream was real — that sacrifice was rewarded, that the nation kept its promises.
+      </p>
+
+      <p class="body-text animate-fade-up delay-3" style="margin-top:1rem;">
+        It was the era of unquestionable patriotism. To serve was to be honorable. The flag meant something uncomplicated.
+      </p>
+
+      <p class="body-text animate-fade-up delay-4" style="margin-top:1rem; color: var(--text-muted); font-style: italic;">
+        But America's promises, as it turned out, were not distributed equally.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 02 — LYRIC INTRODUCTION
+  ══════════════════════════════ -->
+  <section class="scene scene--lyric bg-red-tint" data-scene="2" aria-label="Lyric Introduction">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, rgba(139,26,26,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+
+    <div class="scene-content" style="flex-direction:column; text-align:center; z-index:10;">
+
+      <p class="label-act animate-fade-in delay-1" style="margin-bottom: 3rem;">1969 — John Fogerty writes a song</p>
+
+      <div class="lyric-block animate-fade-up delay-2">
+        <p class="lyric-text">
+          "Some folks are born made to wave the flag,<br>
+          Ooh, they're red, white and blue."
+        </p>
+        <p class="lyric-attribution">Fortunate Son — Creedence Clearwater Revival, 1969</p>
+      </div>
+
+      <div class="divider animate-fade-in delay-3" style="margin-top: 2.5rem;"></div>
+
+      <p class="body-text animate-fade-up delay-3" style="text-align: center; max-width: 50ch; color: var(--text-secondary); margin-top: 1.5rem; font-style: italic;">
+        Written in one night. Released as America was fracturing.
+        A protest song that became a mirror — reflecting who was asked
+        to die, and who was not.
+      </p>
+
+      <p class="body-text animate-fade-up delay-4" style="text-align: center; max-width: 45ch; margin-top: 1.2rem; font-size: 0.85rem; color: var(--text-muted);">
+        This is the history behind the music.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 03 — ACT I BREAK: THE DRAFT
+  ══════════════════════════════ -->
+  <section class="scene scene--title" data-scene="3" aria-label="Act I: The Draft">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, #0d0a06 0%, #1a1408 100%); z-index:0;"></div>
+    <div class="act-break animate-fade-up" style="z-index:10; position:relative;">
+      <p class="act-number">Act I</p>
+      <h2 class="act-title">THE DRAFT</h2>
+      <div class="divider"></div>
+      <p class="act-year">1964 — Gulf of Tonkin Resolution</p>
+      <p class="caption" style="font-style: italic; margin-top: 1.5rem; color: var(--text-muted); max-width: 40ch; text-align:center; line-height: 1.7;">
+        A government decides who goes to war.<br>
+        The answer was not random.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 04 — SELECTIVE SERVICE
+  ══════════════════════════════ -->
+  <section class="scene scene--split" data-scene="4" aria-label="Selective Service System">
+
+    <!-- Left: Document visual -->
+    <div class="split-panel split-panel--image">
+      <div class="image-panel" style="height:100%;">
+        <!-- Real archival: Congressman Alexander Pirnie draws first 1969 draft lottery capsule — Selective Service System (Public Domain) -->
+        <img src="assets/real-archive/scene04-draft-lottery.jpg" alt="Congressman Alexander Pirnie drawing the first capsule in the 1969 Vietnam draft lottery — Selective Service System (Public Domain)" style="width:100%; height:100%; object-fit:cover; object-position: center top; filter: sepia(0.5) brightness(0.38) contrast(1.2); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+      </div>
+      <!-- Simulated draft notice overlay -->
+      <div style="position:absolute; bottom:8%; left:50%; transform:translateX(-50%); z-index:10; width:80%;">
+        <div class="document-block animate-fade-up delay-3" data-header="Selective Service System — Local Board No. 1">
+          <p style="font-size: 0.8rem; line-height: 1.8; color: var(--sepia-light);">
+            ORDER TO REPORT FOR INDUCTION<br><br>
+            The President of the United States, to:<br>
+            <span style="color: var(--text-cream);">[NAME OF INDUCTEE]</span><br><br>
+            You are hereby directed to present yourself for Armed Forces Physical Examination…<br><br>
+            <span class="text-muted" style="font-size:0.7rem;">Selective Training and Service Act of 1940, as amended.</span>
+          </p>
+          <div class="classified-stamp" style="font-size:0.9rem; transform: rotate(-5deg); margin-top: 0.8rem; display:inline-block;">
+            Draft Notice
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Analysis -->
+    <div class="split-panel split-panel--content">
+      <p class="dateline animate-fade-in">1964 — 1973</p>
+      <h2 class="headline animate-fade-up delay-1">
+        The Selective Service System
+      </h2>
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+      <p class="body-text animate-fade-up delay-2">
+        Between 1964 and 1973, the United States military drafted 2.2 million men for service in Vietnam. The draft was administered locally by civilian draft boards — staffed almost entirely by older, established community members.
+      </p>
+      <p class="body-text animate-fade-up delay-3" style="margin-top: 1rem;">
+        The Selective Service Act allowed numerous categories of deferment — and not every American had equal access to them.
+      </p>
+      <div class="analysis-box animate-fade-up delay-4">
+        <span class="analysis-label">Historical Analysis</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          Draft boards overwhelmingly reflected the social hierarchies of their communities. Local board members — often merchants, lawyers, and civic leaders — routinely granted deferments to men they recognized from church, golf clubs, and business circles.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 05 — DEFERMENTS
+  ══════════════════════════════ -->
+  <section class="scene scene--immersive bg-sepia-tint" data-scene="5" aria-label="Deferments and Privilege">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(6,4,2,0.6) 0%, rgba(6,4,2,0.92) 70%, rgba(6,4,2,1) 100%); z-index:5;"></div>
+
+    <div style="position:relative; z-index:10; width:100%; padding: 4rem 8%; display:flex; flex-direction:column; justify-content:flex-end; height:100%;">
+
+      <p class="dateline animate-fade-in">The II-S Deferment — Student Status</p>
+
+      <h2 class="headline headline--italic animate-fade-up delay-1" style="max-width: 700px;">
+        "Some folks are born silver spoon in hand."
+      </h2>
+
+      <p class="caption animate-fade-in delay-1" style="margin-bottom: 1.5rem; font-style:normal; letter-spacing: 0.2em; font-size: 0.6rem;">
+        — Creedence Clearwater Revival, 1969
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; max-width: 900px; margin-top: 1.5rem;">
+
+        <div class="animate-fade-up delay-2">
+          <p style="font-family: var(--font-title); font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.4rem;">II-S</p>
+          <p style="font-family: var(--font-body); font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">Student deferment. Attending college meant staying home. College enrollment rose sharply after 1964 among men of draft age — disproportionately white and upper-class.</p>
+        </div>
+
+        <div class="animate-fade-up delay-3">
+          <p style="font-family: var(--font-title); font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.4rem;">I-Y / IV-F</p>
+          <p style="font-family: var(--font-body); font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">Medical deferment. Wealthier families had access to private doctors who could document conditions — heel spurs, allergies, anxiety — that poorer men could not have certified.</p>
+        </div>
+
+        <div class="animate-fade-up delay-4">
+          <p style="font-family: var(--font-title); font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.4rem;">II-A</p>
+          <p style="font-family: var(--font-body); font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">Occupational deferment. Essential civilian work. Available to those with the right connections to industries deemed critical to national interest.</p>
+        </div>
+
+      </div>
+
+      <p class="body-text animate-fade-up delay-5" style="margin-top: 2rem; font-style: italic; color: var(--text-muted); font-size: 0.85rem; max-width: 60ch;">
+        In all, an estimated 15 million men of draft age found legal ways to avoid service during the Vietnam era. The working class had far fewer options.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 06 — WHO ACTUALLY SERVED
+  ══════════════════════════════ -->
+  <section class="scene scene--fact" data-scene="6" aria-label="Statistics: Who Served">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(180deg, var(--bg-primary) 0%, #0f0906 100%); z-index:0;"></div>
+
+    <!-- Lyric fragment -->
+    <div style="position:absolute; top: 8%; left: 8%; z-index:10; border-left: 2px solid rgba(201,168,76,0.25); padding-left: 1.2rem;">
+      <p class="lyric-text animate-fade-in" style="font-size: 1rem; text-align:left; color: var(--text-muted); font-style:italic;">
+        "It ain't me, it ain't me,<br>I ain't no senator's son…"
+      </p>
+      <p class="lyric-attribution" style="margin-top: 0.5rem;">— CCR, 1969</p>
+    </div>
+
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; text-align:center; padding: 2rem;">
+
+      <div class="stat-block animate-fade-up delay-2">
+        <span class="stat-number">78%</span>
+        <span class="stat-label">of Vietnam combat troops came from<br>poor or working-class backgrounds</span>
+        <span class="stat-source">Baskir &amp; Strauss, "Chance and Circumstance" (1978)</span>
+      </div>
+
+      <div class="divider animate-fade-in delay-3" style="margin: 2rem auto; width: 120px;"></div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 700px;" class="animate-fade-up delay-3">
+        <div>
+          <p style="font-family:var(--font-title); font-size:2.2rem; color:var(--accent-gold);">25%</p>
+          <p class="caption" style="font-style:normal; font-size:0.7rem; letter-spacing:0.1em; margin-top:0.3rem;">of eligible men from wealthy families served in Vietnam</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-title); font-size:2.2rem; color:var(--accent-gold);">80%</p>
+          <p class="caption" style="font-style:normal; font-size:0.7rem; letter-spacing:0.1em; margin-top:0.3rem;">of those who went had no college education</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-title); font-size:2.2rem; color:var(--accent-gold);">2.7M</p>
+          <p class="caption" style="font-style:normal; font-size:0.7rem; letter-spacing:0.1em; margin-top:0.3rem;">Americans served in Vietnam War theater</p>
+        </div>
+      </div>
+
+      <p class="body-text animate-fade-up delay-4" style="max-width: 55ch; text-align:center; margin-top: 2rem; font-style:italic; color: var(--text-muted);">
+        The song was not a metaphor. It was a ledger.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 07 — ACT II BREAK: INTO THE FIRE
+  ══════════════════════════════ -->
+  <section class="scene scene--title bg-olive" data-scene="7" aria-label="Act II: Into the Fire">
+    <!-- Real archival: UH-1A helicopter, Tan Son Nhut Air Base, 1963 — NARA (Public Domain) -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;">
+      <img src="assets/real-archive/scene07-helicopter.jpg" alt="UH-1A Huey helicopter at Tan Son Nhut Air Base, South Vietnam, 1963 — U.S. Army / NARA" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.7) brightness(0.22) contrast(1.2); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+    </div>
+    <div class="act-break animate-fade-up" style="z-index:10; position:relative;">
+      <p class="act-number">Act II</p>
+      <h2 class="act-title">INTO THE FIRE</h2>
+      <div class="divider"></div>
+      <p class="act-year">1965 — 1968</p>
+      <p class="caption" style="font-style: italic; margin-top: 1.5rem; color: var(--text-muted); max-width: 40ch; text-align:center; line-height: 1.7;">
+        The sons of America were sent into a jungle<br>
+        their government did not fully understand.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 08 — VIETNAM REALITY
+  ══════════════════════════════ -->
+  <section class="scene scene--split" data-scene="8" aria-label="Vietnam Combat Reality">
+
+    <!-- Left: Image -->
+    <div class="split-panel split-panel--image">
+      <div class="image-panel" style="height:100%;">
+        <!-- Real archival: B Company, 1st Battalion, 16th Infantry patrol near Bien Hoa — SSG Lyle V. Boggess / U.S. Army (Public Domain) -->
+        <img src="assets/real-archive/scene08-jungle-patrol.jpg" alt="B Company, 1st Battalion, 16th Infantry troops patrol jungle near Bien Hoa, Vietnam — U.S. Army photograph (Public Domain)" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.4) brightness(0.42) contrast(1.2); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+      </div>
+    </div>
+
+    <!-- Right: Analysis -->
+    <div class="split-panel split-panel--content">
+      <p class="dateline animate-fade-in">Vietnam — 1965–1972</p>
+      <h2 class="headline animate-fade-up delay-1">
+        The World They Were Sent Into
+      </h2>
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+      <p class="body-text animate-fade-up delay-2">
+        The terrain was unlike anything American military doctrine had prepared for. The Viet Cong used tunnels, booby traps, and civilian cover. Body counts became the primary metric of success — a statistical fiction designed to satisfy commanders in Washington.
+      </p>
+      <p class="body-text animate-fade-up delay-3" style="margin-top:1rem;">
+        The average age of a combat soldier in Vietnam was 19 years old. In World War II, it was 26.
+      </p>
+      <div class="analysis-box animate-fade-up delay-4">
+        <span class="analysis-label">Historical Significance</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          By 1967, Secretary of Defense Robert McNamara privately acknowledged the war was unwinnable. He told President Johnson this in a private memo — while the public continued to be told progress was being made. The gap between official narrative and reality was already enormous.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 09 — THE TELEVISION WAR
+  ══════════════════════════════ -->
+  <section class="scene scene--immersive" data-scene="9" aria-label="The Television War">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+      <img src="assets/scene09-television-war.svg" alt="1960s American family watching Vietnam War news on television" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.4) brightness(0.45) contrast(1.15);">
+    </div>
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(6,4,2,0.2) 0%, rgba(6,4,2,0.85) 60%, rgba(6,4,2,0.98) 100%); z-index:5;"></div>
+
+    <div style="position:relative; z-index:10; width:100%; padding: 3rem 8%; display:flex; flex-direction:column; justify-content:flex-end; height:100%;">
+
+      <p class="dateline animate-fade-in">CBS Evening News — February 27, 1968</p>
+
+      <div class="pull-quote animate-fade-up delay-1" style="text-align: left; padding: 0; max-width: 700px;">
+        <p class="pull-quote-text" style="font-size: clamp(1rem, 2vw, 1.5rem);">
+          "It seems now more certain than ever that the bloody experience of Vietnam is to end in a stalemate."
+        </p>
+        <p class="pull-quote-attribution">— Walter Cronkite, CBS News Editorial, February 1968</p>
+      </div>
+
+      <p class="body-text animate-fade-up delay-2" style="margin-top: 1.5rem; max-width: 60ch;">
+        Vietnam was the first war broadcast directly into American living rooms. For the first time in history, families watched the war at dinner. The distance between government rhetoric and television reality became impossible to ignore.
+      </p>
+
+      <p class="body-text animate-fade-up delay-3" style="margin-top: 1rem; font-style: italic; color: var(--text-muted); font-size: 0.9rem;">
+        When Cronkite spoke, President Johnson reportedly said: "If I've lost Cronkite, I've lost Middle America."
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 10 — CREDIBILITY GAP
+  ══════════════════════════════ -->
+  <section class="scene scene--fact bg-red-tint" data-scene="10" aria-label="Credibility Gap">
+
+    <!-- Real archival: President Nixon delivering a speech, 1970 — Oliver F. Atkins / NARA (Public Domain) -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;">
+      <img src="assets/real-archive/scene10-nixon-nara.jpg" alt="President Richard Nixon giving a speech, 1970 — Photographer: Oliver F. Atkins, National Archives (NARA)" style="width:100%; height:100%; object-fit:cover; object-position: center top; filter: sepia(0.7) brightness(0.25) contrast(1.15); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+    </div>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, rgba(139,26,26,0.1) 0%, transparent 65%); pointer-events:none; z-index:1;"></div>
+
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; text-align:center; padding: 3rem 8%; max-width: 900px;">
+
+      <p class="label-act animate-fade-in delay-1">The Credibility Gap — 1967</p>
+
+      <h2 class="headline animate-fade-up delay-1" style="font-size: clamp(1.8rem, 4vw, 3.2rem); max-width: 700px; text-align:center;">
+        The numbers Washington reported<br>did not match the bodies coming home.
+      </h2>
+
+      <div class="divider animate-fade-in delay-2" style="width: 100px;"></div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1.5rem; text-align: left; max-width: 800px;">
+        <div class="animate-fade-up delay-2">
+          <p class="label-act" style="color: var(--accent-gold);">What They Said</p>
+          <p class="body-text" style="font-style: italic; color: var(--text-secondary);">
+            "We are winning. The enemy is weakening. We can see the light at the end of the tunnel."
+          </p>
+          <p class="caption" style="margin-top: 0.5rem; font-style:normal;">— Gen. William Westmoreland, 1967</p>
+        </div>
+        <div class="animate-fade-up delay-3">
+          <p class="label-act" style="color: var(--accent-red-lt);">What Was Happening</p>
+          <p class="body-text" style="color: var(--text-secondary);">
+            U.S. casualties rose every year. By 1968, over 16,000 Americans had died. The Viet Cong showed no signs of collapse. Public approval of the war fell below 50% for the first time.
+          </p>
+        </div>
+      </div>
+
+      <div class="analysis-box animate-fade-up delay-4" style="max-width: 700px; margin-top: 2rem; text-align: left;">
+        <span class="analysis-label">Historical Analysis — The Credibility Gap</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          The term "credibility gap" entered American political vocabulary in 1965, coined by journalists to describe the widening space between the Johnson administration's optimistic Vietnam statements and observable reality. This loss of institutional trust had lasting consequences — it accelerated both the anti-war movement and a broader national skepticism toward government that persists to this day.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 11 — ACT III BREAK: THE FRACTURE
+  ══════════════════════════════ -->
+  <section class="scene scene--title" data-scene="11" aria-label="Act III: The Fracture">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, #0d0806 0%, #1a0a08 100%); z-index:0;"></div>
+    <div class="act-break animate-fade-up" style="z-index:10; position:relative;">
+      <p class="act-number">Act III</p>
+      <h2 class="act-title" style="color: var(--accent-red-lt);">THE FRACTURE</h2>
+      <div class="divider divider--red"></div>
+      <p class="act-year">1968 — 1971</p>
+      <p class="caption" style="font-style: italic; margin-top: 1.5rem; color: var(--text-muted); max-width: 40ch; text-align:center; line-height: 1.7;">
+        A nation watching itself fall apart.<br>
+        The streets became a second front.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 12 — TET OFFENSIVE / 1968
+  ══════════════════════════════ -->
+  <section class="scene scene--split" data-scene="12" aria-label="Tet Offensive 1968">
+
+    <!-- Left: Image -->
+    <div class="split-panel split-panel--image">
+      <div class="image-panel" style="height:100%;">
+        <!-- Real archival: Black smoke over Saigon during Tet Offensive attacks, 1968 — U.S. National Archives (NARA, Public Domain) -->
+        <img src="assets/real-archive/scene12-tet-saigon.jpg" alt="Black smoke covers Saigon as fire trucks respond to fires during Tet Offensive attacks, January 1968 — U.S. National Archives and Records Administration (NARA, Public Domain)" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.5) brightness(0.42) contrast(1.2); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="split-panel split-panel--content">
+      <p class="dateline animate-fade-in">January 30–31, 1968</p>
+      <h2 class="headline headline--red animate-fade-up delay-1">
+        The Tet Offensive
+      </h2>
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+      <p class="body-text animate-fade-up delay-2">
+        On the Vietnamese lunar new year, North Vietnamese and Viet Cong forces launched simultaneous attacks on over 100 cities and outposts across South Vietnam — including the U.S. Embassy in Saigon. The American public watched in shock.
+      </p>
+      <p class="body-text animate-fade-up delay-3" style="margin-top:1rem;">
+        The military called it a tactical defeat for the enemy. But the American public drew a different conclusion: if the enemy could strike anywhere, at any time, then the government's claims of progress had been lies.
+      </p>
+      <div class="analysis-box animate-fade-up delay-4">
+        <span class="analysis-label">Historical Significance</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          Tet destroyed whatever remained of public confidence in Johnson's Vietnam policy. By March 1968, LBJ's approval rating on Vietnam had fallen to 26%. On March 31, he announced he would not seek re-election. The war had consumed his presidency.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 13 — ANTI-WAR PROTESTS
+  ══════════════════════════════ -->
+  <section class="scene scene--immersive" data-scene="13" aria-label="Anti-War Protests">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+      <!-- Real archival: Vietnam War Moratorium, Washington D.C., November 15, 1969 — Dr. Dennis Bogdan (CC BY-SA 4.0) -->
+      <img src="assets/real-archive/scene13-moratorium.jpg" alt="Vietnam War Second Moratorium March, Washington D.C., November 15, 1969 — photograph by Dr. Dennis Bogdan (CC BY-SA 4.0)" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.5) brightness(0.38) contrast(1.2); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+    </div>
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(6,4,2,0.98) 0%, rgba(6,4,2,0.75) 50%, rgba(6,4,2,0.25) 100%); z-index:5;"></div>
+
+    <div style="position:relative; z-index:10; width:100%; padding: 3rem 8%; display:flex; flex-direction:column; justify-content:flex-end; height:100%;">
+
+      <div class="lyric-overlay animate-fade-in delay-1" style="position:relative; bottom:auto; left:auto; right:auto; max-width:550px; margin-bottom: 1.5rem;">
+        <p class="lyric-text" style="font-size: clamp(0.9rem, 1.8vw, 1.2rem);">
+          "It ain't me, it ain't me,<br>
+          I ain't no fortunate one, no."
+        </p>
+      </div>
+
+      <h2 class="headline animate-fade-up delay-1" style="max-width: 600px;">
+        The Streets Answered
+      </h2>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 800px; margin-top: 1.2rem;">
+        <div class="animate-fade-up delay-2">
+          <p style="font-family: var(--font-title); color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.4rem;">Oct. 15, 1969</p>
+          <p class="body-text" style="font-size:0.82rem;">Vietnam Moratorium Day — estimated 2 million Americans participated in anti-war demonstrations across the country. The largest coordinated protest in U.S. history to that date.</p>
+        </div>
+        <div class="animate-fade-up delay-3">
+          <p style="font-family: var(--font-title); color: var(--accent-gold); font-size: 1rem; margin-bottom: 0.4rem;">Nov. 15, 1969</p>
+          <p class="body-text" style="font-size:0.82rem;">The Moratorium March on Washington — 500,000 people gathered on the National Mall. Vietnam Veterans Against the War threw their medals onto the Capitol steps.</p>
+        </div>
+      </div>
+
+      <p class="body-text animate-fade-up delay-4" style="margin-top: 1.5rem; font-style: italic; color: var(--text-muted); font-size:0.85rem;">
+        The movement crossed every demographic. It was not just students. It was veterans, mothers, clergy, and workers — the same working-class America that had borne the draft.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 14 — KENT STATE
+  ══════════════════════════════ -->
+  <section class="scene scene--fact bg-red-tint" data-scene="14" aria-label="Kent State May 4 1970">
+
+    <!-- Real archival: Kent State University, May 4 1970 — tear gas and students — Larry Stoddard / AP (Public Domain) -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden;">
+      <img src="assets/real-archive/scene14-kent-state.jpg" alt="Kent State University, May 4 1970 — tear gas deployed on student protesters — Larry Stoddard / Associated Press (Public Domain)" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.6) brightness(0.22) contrast(1.25); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+    </div>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at 40% 50%, rgba(139,26,26,0.15) 0%, transparent 60%); pointer-events:none; z-index:1;"></div>
+
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; text-align:center; padding: 3rem 8%; max-width: 800px;">
+
+      <p class="dateline animate-fade-in delay-1" style="text-align:center;">Kent State University, Ohio</p>
+
+      <h2 class="headline headline--red animate-fade-up delay-1" style="font-size: clamp(1.8rem, 4vw, 3.2rem); text-align:center; line-height: 1.1;">
+        May 4, 1970
+      </h2>
+
+      <div class="divider divider--red animate-fade-in delay-2" style="width: 80px;"></div>
+
+      <p class="body-text animate-fade-up delay-2" style="text-align:center; max-width: 55ch; font-size: clamp(0.9rem, 1.5vw, 1.1rem);">
+        Ohio National Guard troops opened fire on student protesters at Kent State University, killing four students and wounding nine others. Two of the four killed — Allison Krause and Jeffrey Miller — had been participating in anti-war demonstrations. The other two — Sandra Scheuer and William Knox Schroeder — had been walking between classes.
+      </p>
+
+      <div class="divider animate-fade-in delay-3" style="width: 80px;"></div>
+
+      <div class="stat-block animate-fade-up delay-3" style="padding: 1rem 0;">
+        <span class="stat-number" style="font-size: clamp(3rem, 8vw, 6rem);">4</span>
+        <span class="stat-label">students killed on American soil<br>by American soldiers</span>
+      </div>
+
+      <p class="body-text animate-fade-up delay-4" style="text-align:center; max-width: 50ch; font-style:italic; color: var(--text-muted); font-size:0.85rem;">
+        Neil Young wrote "Ohio" four days later. It was on the radio within weeks. The song asked the question America could not answer: how far would the government go?
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 15 — PENTAGON PAPERS
+  ══════════════════════════════ -->
+  <section class="scene scene--split" data-scene="15" aria-label="Pentagon Papers 1971">
+
+    <!-- Left: Document aesthetic -->
+    <div class="split-panel split-panel--image">
+      <div class="image-panel" style="height:100%;">
+        <img src="assets/scene15-pentagon-papers.svg" alt="Pentagon Papers — classified government documents with TOP SECRET stamp" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.45) brightness(0.48) contrast(1.15);">
+      </div>
+      <!-- Simulated classified document -->
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:10; width:75%;">
+        <div class="document-block animate-fade-up delay-2" data-header="Department of Defense — Top Secret — Sensitive">
+          <p style="font-size: 0.75rem; line-height: 1.9; color: var(--sepia-light);">
+            HISTORY OF U.S. DECISION-MAKING<br>
+            IN VIETNAM, 1945–68<br><br>
+            This document contains information<br>
+            affecting the national defense of the<br>
+            United States within the meaning of the<br>
+            Espionage Laws, Title 18, U.S.C.
+          </p>
+          <div class="classified-stamp" style="display:inline-block; margin-top:1rem;">
+            TOP SECRET
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="split-panel split-panel--content">
+      <p class="dateline animate-fade-in">June 13, 1971 — The New York Times</p>
+      <h2 class="headline animate-fade-up delay-1">
+        The Pentagon Papers
+      </h2>
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+      <p class="body-text animate-fade-up delay-2">
+        Defense analyst Daniel Ellsberg leaked 7,000 pages of classified Defense Department history to The New York Times. The papers revealed that four successive administrations — Truman, Eisenhower, Kennedy, and Johnson — had systematically misled Congress and the American public about Vietnam.
+      </p>
+      <p class="body-text animate-fade-up delay-3" style="margin-top:1rem;">
+        The Nixon administration sought to suppress publication. The Supreme Court ruled 6–3 in <em>New York Times Co. v. United States</em> (1971) that the government had not met the heavy burden required for prior restraint of the press.
+      </p>
+      <div class="analysis-box animate-fade-up delay-4">
+        <span class="analysis-label">Historical Significance</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          The Pentagon Papers confirmed what many Americans already suspected: the government had been lying for years. They accelerated the collapse of trust in federal institutions that became a defining feature of the 1970s — and arguably never fully recovered.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 16 — ACT IV BREAK: THE RETURN
+  ══════════════════════════════ -->
+  <section class="scene scene--title" data-scene="16" aria-label="Act IV: The Return">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, #080806 0%, #0e0e0a 100%); z-index:0;"></div>
+    <div class="act-break animate-fade-up" style="z-index:10; position:relative;">
+      <p class="act-number">Act IV</p>
+      <h2 class="act-title">THE RETURN</h2>
+      <div class="divider"></div>
+      <p class="act-year">1968 — 1975</p>
+      <p class="caption" style="font-style: italic; margin-top: 1.5rem; color: var(--text-muted); max-width: 40ch; text-align:center; line-height: 1.7;">
+        58,220 Americans died.<br>
+        Those who came home found a country<br>that no longer knew what to do with them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 17 — VETERANS COME HOME
+  ══════════════════════════════ -->
+  <section class="scene scene--immersive" data-scene="17" aria-label="Veterans Return Home">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+      <!-- Real archival: Vietnam Veterans Memorial Wall with Washington Monument — David J. Jackson (CC BY-SA 4.0) -->
+      <img src="assets/real-archive/scene17-memorial-wall.jpg" alt="Vietnam Veterans Memorial Wall with Washington Monument, Washington D.C. — David J. Jackson (CC BY-SA 4.0)" style="width:100%; height:100%; object-fit:cover; filter: sepia(0.5) brightness(0.38) contrast(1.15); animation: subtle-zoom 20s ease-in-out infinite alternate;">
+    </div>
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, rgba(6,4,2,0.95) 0%, rgba(6,4,2,0.75) 55%, rgba(6,4,2,0.2) 100%); z-index:5;"></div>
+
+    <div style="position:relative; z-index:10; padding: 4rem 8%; max-width: 700px; align-self: center;">
+
+      <p class="dateline animate-fade-in">The United States, 1968 — 1975</p>
+
+      <h2 class="headline animate-fade-up delay-1">
+        Forgotten by the Country That Sent Them
+      </h2>
+
+      <div class="divider--left divider animate-fade-in delay-2"></div>
+
+      <p class="body-text animate-fade-up delay-2">
+        Vietnam veterans returned to a nation divided. Unlike the heroes of World War II who came home to parades, Vietnam veterans often returned quietly — sometimes in civilian clothes to avoid confrontation. The war they fought had no clear victory, and their country did not know how to receive them.
+      </p>
+
+      <p class="body-text animate-fade-up delay-3" style="margin-top:1rem;">
+        Post-traumatic stress — then called "Vietnam Syndrome" — went largely untreated. Veterans were turned away from VA hospitals. Unemployment among veterans ran double the national average. Agent Orange exposure caused cancers that would claim more lives after the war than during it.
+      </p>
+
+      <div class="analysis-box animate-fade-up delay-4">
+        <span class="analysis-label">Historical Analysis</span>
+        <p style="font-family: var(--font-body); font-size: 0.82rem; line-height: 1.75; color: var(--text-secondary);">
+          The treatment of Vietnam veterans exposed a fundamental incoherence in how American society processed the war: the public had turned against the conflict, but the institutions responsible for caring for those who fought it were unprepared and underfunded. It took until the 1980s before PTSD was formally recognized by the American Psychiatric Association.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 18 — HISTORICAL REFLECTION / THESIS
+  ══════════════════════════════ -->
+  <section class="scene scene--quote" data-scene="18" aria-label="Historical Reflection">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events:none; z-index:0;"></div>
+
+    <div style="position:relative; z-index:10; max-width: 820px; text-align:center; padding: 2rem 4rem;">
+
+      <p class="label-act animate-fade-in delay-1" style="margin-bottom: 2rem;">Historical Argument</p>
+
+      <h2 class="headline animate-fade-up delay-1" style="font-size: clamp(1.4rem, 3vw, 2.4rem); font-family: var(--font-headline); font-style: italic; color: var(--text-cream); line-height: 1.4; text-align:center;">
+        Vietnam did not just divide America. It revealed what America had always been.
+      </h2>
+
+      <div class="divider animate-fade-in delay-2" style="width:100px;"></div>
+
+      <p class="body-text animate-fade-up delay-2" style="text-align:center; max-width: 60ch; margin: 0 auto; font-size: clamp(0.85rem, 1.3vw, 1rem);">
+        The draft was not broken. It was working exactly as the powerful intended. The sons of senators did not serve. The sons of farmers and factory workers did. This was not an accident — it was a system.
+      </p>
+
+      <p class="body-text animate-fade-up delay-3" style="text-align:center; max-width: 58ch; margin: 1.2rem auto 0; font-size: clamp(0.85rem, 1.3vw, 1rem); color: var(--text-muted);">
+        The anti-war movement was not disloyalty. It was a demand for accountability — the same democratic accountability the government claimed to be defending in Southeast Asia. The irony was not lost on those who marched.
+      </p>
+
+      <p class="body-text animate-fade-up delay-4" style="text-align:center; max-width: 55ch; margin: 1.2rem auto 0; font-style:italic; font-size: clamp(0.85rem, 1.3vw, 1rem); color: var(--text-secondary);">
+        John Fogerty wrote "Fortunate Son" in 1969 because he saw this clearly. The song survived because the contradiction it described has never fully been resolved.
+      </p>
+
+      <div class="animate-fade-up delay-5" style="margin-top: 3rem;">
+        <div class="lyric-block" style="padding: 1rem 0; border: none;">
+          <p class="lyric-text" style="font-size: clamp(1rem, 2vw, 1.6rem); color: var(--text-secondary);">
+            "Some folks are born made to wave the flag…<br>
+            <span style="color: var(--white-warm);">It ain't me, it ain't me.</span>"
+          </p>
+          <p class="lyric-attribution">Fortunate Son — CCR, 1969 | © John Fogerty / Fantasy Records</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       SCENE 19 — FINAL CREDITS
+  ══════════════════════════════ -->
+  <section class="scene scene--credits" data-scene="19" aria-label="Final Credits">
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(ellipse at center, rgba(13,10,6,1) 0%, rgba(6,4,2,1) 100%); z-index:0;"></div>
+
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; text-align:center; padding: 3rem;">
+
+      <p class="credits-title animate-fade-in delay-1">Presented by</p>
+
+      <h1 class="credits-name animate-fade-up delay-2">Yonathan Gal</h1>
+
+      <div class="credits-separator animate-fade-in delay-3"></div>
+
+      <p class="credits-detail animate-fade-up delay-3">APUSH 2026</p>
+      <p class="credits-detail animate-fade-up delay-3" style="color: var(--text-muted);">Mr. Siflinger</p>
+
+      <div class="credits-separator animate-fade-in delay-4"></div>
+
+      <div class="animate-fade-up delay-4" style="max-width: 600px;">
+        <p class="caption" style="font-style:normal; letter-spacing:0.12em; font-size:0.65rem; text-transform:uppercase; color:var(--text-dim); line-height:2.4;">
+          Song Reference: "Fortunate Son" © 1969 John Fogerty<br>
+          Published by Fantasy Records — Educational / analytical purposes only<br><br>
+          Historical sources: National Archives (NARA), Library of Congress,<br>
+          Miller Center UVA, Baskir &amp; Strauss (1978), Appy (1993)<br><br>
+          Archival photographs: U.S. National Archives (NARA) — Public Domain<br>
+          Scene 04: Selective Service System / U.S. Government — Public Domain<br>
+          Scene 13: Dr. Dennis Bogdan (CC BY-SA 4.0) — Moratorium March, Nov. 15, 1969<br>
+          Scene 17: David J. Jackson (CC BY-SA 4.0) — Vietnam Veterans Memorial
+        </p>
+      </div>
+
+      <div class="animate-fade-in delay-5" style="margin-top: 3rem;">
+        <p class="caption" style="font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-dim); opacity:0.4; font-style:normal;">
+          APUSH 2026 Multimedia Final Project
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /presentation -->
+
+<!-- ───────────────────────────────
+     NAVIGATION CONTROLS
+──────────────────────────────── -->
+<nav class="controls" aria-label="Presentation navigation">
+  <button class="btn-nav" id="btn-prev" aria-label="Previous scene">&#8592; PREV</button>
+  <span class="scene-counter" id="scene-counter" aria-live="polite">01 / 20</span>
+  <button class="btn-nav" id="btn-next" aria-label="Next scene">NEXT &#8594;</button>
+  <button class="btn-nav" id="btn-autoplay" aria-label="Toggle autoplay" style="margin-left: 0.5rem; font-size:0.55rem; opacity:0.5;">&#9654; AUTO</button>
+  <button class="btn-fullscreen" id="btn-fullscreen" aria-label="Toggle fullscreen">&#x229E; EXPAND</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
